@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Table, Button } from "react-bootstrap";
-import { FaPenToSquare, FaTrash } from "react-icons/fa6";
+import { FaEye, FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { useNavigate } from "react-router";
 import { getStorage, setStorage } from "../Services/storagedata";
 const Home = () => {
@@ -9,6 +9,9 @@ const Home = () => {
 const handleEdit = (id) => {
   navigate(`/edit/${id}`);
 };
+const handleView =(id)=>{
+  navigate(`/view/${id}`)
+}
   const handleDelete = (id) => {
   let patients = getStorage();
   const updatedPatients = patients.filter(patient => patient.id !== id);
@@ -52,7 +55,10 @@ const handleEdit = (id) => {
         </td>
         <td>{patient.reason}</td>
         <td className="actions">
-          <Button variant="warning" className="me-3" size="sm" onClick={() => handleEdit(patient.id)}>
+          <Button variant="info"  size="sm" onClick={() => handleView(patient.id)}>
+            <FaEye />
+          </Button>
+          <Button variant="warning" className="mx-2" size="sm" onClick={() => handleEdit(patient.id)}>
             <FaPenToSquare />
           </Button>
           <Button variant="danger" size="sm" onClick={() => handleDelete(patient.id)}>
