@@ -23,10 +23,10 @@ const EditPatient = () => {
   const [errors, setErrors] = useState({});
    const validate = () => {
   let errors = {};
-  if (patient.firstName  === "") {
+  if (patient.firstName === "") {
     errors.fname = "First Name is required";
   }
-  if (patient.lastName  === "") {
+  if (patient.lastName === "") {
     errors.lname = "Last Name is required";
   }
   if (patient.age  === "") {
@@ -79,14 +79,9 @@ if (patient.check === false) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-     const id = generateUniqueId({
-                useLetters: false,
-                length: 5
-            });
-    patient.id = id;
      if (!validate()) return;
     const data = getStorage() || [];
-    const updatedData = data.map((p) => (p.id === patient.id ? patient : p));
+    const updatedData = data.map((patients) => (patients.id === patient.id ? patient : p));
     setStorage(updatedData);
     navigate('/');
   };
