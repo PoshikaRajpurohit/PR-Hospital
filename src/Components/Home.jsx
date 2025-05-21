@@ -149,7 +149,7 @@ const handleSorting = (type, field) => {
                 paginated.map((patient, i) => (
                   <tr key={patient.id}>
                     <td>{indexOfFirstRecord + i + 1}</td>
-                    <td>{patient.firstName}{patient.lastName}</td>
+                    <td>{patient.firstName}  {patient.lastName}</td>
                     <td>{patient.age}</td>
                     <td>{patient.gender}</td>
                     <td>{patient.contact}</td>
